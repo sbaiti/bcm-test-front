@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Grid } from "@material-ui/core"
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import styled from 'styled-components';
-import { getDurationVol } from '../../../shared/utility'
+import { getDurationVol } from '../../../shared/utility';
 import { greenTeal } from '../../../assets/sass/base/_variables.scss'
 
 const TextMiddle = styled.div`
