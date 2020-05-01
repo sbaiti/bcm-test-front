@@ -33,6 +33,7 @@ export function getTimeDetailVol(vol) {
 export function getDurationVol(vol) {
     const now = vol.departure_time;
     const then = vol.arrival_time;
-    const duration = moment.utc(moment(now, "YYYY-MM-DDTHH:mm").diff(moment(then, "YYYY-MM-DDTHH:mm"))).format("HH:mm")
+    const duration = moment.utc(moment(then, "YYYY-MM-DDTHH:mm").diff(moment(now, "YYYY-MM-DDTHH:mm"))).format("HH:mm")
+    console.log(duration);
     return (duration.replace(':', 'h ') + ' min')
 }
