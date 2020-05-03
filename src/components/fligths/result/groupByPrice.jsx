@@ -53,7 +53,7 @@ const GroupByPrice = ({ prices }) => {
                             )}
                         </Tabs>
                     </AppBar>
-                    <div style={{ height: `calc(100vh - 32vh)`, overflow: 'auto' }}>
+                    <div style={{ maxHeight: `calc(100vh - 40vh)`, overflow: 'auto' }}>
                         {prices.map((vol, index) =>
                             <TabPanel value={value} key={index} index={index}>
                                 <Vols vols={vol.combinations} />
