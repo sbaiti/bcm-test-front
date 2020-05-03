@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
 import Detail from './detail';
-import SpinnerDot from '../../ui/spinner/spinnerDot'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -45,7 +44,7 @@ const ParamsSearched = ({ params }) => {
             </div >
         )
             :
-            <SpinnerDot />
+            null
     )
 }
 ParamsSearched.propTypes = {

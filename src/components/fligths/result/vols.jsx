@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Vol from './vol';
 
 const Vols = ({ vols }) => {
-    return vols.map((vol, index) => { return <Vol key={index} vol={vol} /> }
+    return (vols || []).map((vol, index) => { return <Vol key={index} vol={vol} /> }
     )
 };
 

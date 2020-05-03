@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Tabs, Tab } from '@material-ui/core';
 import TabPanel from '../../ui/tabPanel'
 import Vols from './vols'
+import NoDataInResult from './noDataInResult'
 
 function a11yProps(index) {
     return {
@@ -35,28 +36,34 @@ const GroupByPrice = ({ prices }) => {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static" color="default">
-                <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    variant="scrollable"
-                    scrollButtons="auto"
-                    aria-label="scrollable auto tabs example"
-                >
-                    {prices.map((price, index) =>
-                        <Tab key={index} className={classes.tab} label={`${price.price} €`} {...a11yProps(0)} />
-                    )}
-                </Tabs>
-            </AppBar>
-            <div style={{ height: `calc(100vh - 32vh)`, overflow: 'auto' }}>
-                {prices.map((vol, index) =>
-                    <TabPanel value={value} key={index} index={index}>
-                        <Vols vols={vol.combinations} />
-                    </TabPanel>
-                )}
-            </div>
+            {prices.length > 0 ? (
+                <div>
+                    <AppBar position="static" color="default">
+                        <Tabs
+                            value={value}
+                            onChange={handleChange}
+                            indicatorColor="primary"
+                            textColor="primary"
+                            variant="scrollable"
+                            scrollButtons="auto"
+                            aria-label="scrollable auto tabs example"
+                        >
+                            {prices.map((price, index) =>
+                                <Tab key={index} className={classes.tab} label={`${price.price} €`} {...a11yProps(0)} />
+                            )}
+                        </Tabs>
+                    </AppBar>
+                    <div style={{ height: `calc(100vh - 32vh)`, overflow: 'auto' }}>
+                        {prices.map((vol, index) =>
+                            <TabPanel value={value} key={index} index={index}>
+                                <Vols vols={vol.combinations} />
+                            </TabPanel>
+                        )}
+                    </div>
+                </div>
+            ) :
+                <NoDataInResult />
+            }
         </div >
     );
 };
